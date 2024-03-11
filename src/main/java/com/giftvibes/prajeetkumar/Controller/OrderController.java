@@ -2,6 +2,7 @@ package com.giftvibes.prajeetkumar.Controller;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,13 +18,10 @@ import lombok.RequiredArgsConstructor;
 
 
 @RestController
-@RequiredArgsConstructor
 @Tag(name="OrderController")
-
-
+@AllArgsConstructor
 public class OrderController {
 
-    @Autowired
     OrderRepository orderRepository ;
 
     @PostMapping("/order")

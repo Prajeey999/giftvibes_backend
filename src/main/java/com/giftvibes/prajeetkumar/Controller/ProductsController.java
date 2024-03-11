@@ -3,6 +3,7 @@ package com.giftvibes.prajeetkumar.Controller;
 import com.giftvibes.prajeetkumar.Service.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import com.giftvibes.prajeetkumar.Models.Products;
@@ -14,12 +15,10 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 @RestController
-@RequiredArgsConstructor
 @Tag(name="ProductsController")
 @AllArgsConstructor
 public class ProductsController {
 
-    ProductsRepository productsRepository ;
     ProductService productService;
 
     @GetMapping("/products")
@@ -29,12 +28,12 @@ public class ProductsController {
 
     @PostMapping("/products")
     public void addProducts(@RequestBody Products products) {
-        productsRepository.save(products) ;
+        productService.save(products) ;
     }
 
     @DeleteMapping("/Products/delete/{id}")
     public void delProducts(@PathVariable String id){
-        productsRepository.deleteById(id);
+        productService.deleteById(id);
     }
 
 }

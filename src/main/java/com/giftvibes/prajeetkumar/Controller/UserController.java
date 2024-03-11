@@ -3,6 +3,7 @@ package com.giftvibes.prajeetkumar.Controller;
 import static com.giftvibes.prajeetkumar.utils.MyConstant.GET;
 import static com.giftvibes.prajeetkumar.utils.MyConstant.USER;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -24,11 +25,11 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping(USER)
 @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
-@RequiredArgsConstructor
 @Tag(name="User")
+@AllArgsConstructor
 public class UserController {
 
-    private final UserService userService;
+    private UserService userService;
 
     @GetMapping(GET)
     @PreAuthorize("hasAuthority('user:read')")

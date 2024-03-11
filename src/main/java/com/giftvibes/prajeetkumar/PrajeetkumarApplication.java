@@ -1,8 +1,5 @@
 package com.giftvibes.prajeetkumar;
 
-import com.giftvibes.prajeetkumar.Models.Category;
-import com.giftvibes.prajeetkumar.Models.Products;
-import com.giftvibes.prajeetkumar.Repository.ProductsRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

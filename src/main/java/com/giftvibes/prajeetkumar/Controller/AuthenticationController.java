@@ -11,6 +11,7 @@ import static org.springframework.http.HttpStatus.EXPECTATION_FAILED;
 
 import java.io.IOException;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -36,10 +37,10 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @Tag(name = "Authentication")
 @RequestMapping(AUTH)
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class AuthenticationController {
 
-    private final AuthenticationService authService;
+    private AuthenticationService authService;
 
     @PostMapping(REGISTER)
     public ResponseEntity<RegisterResponse> register(@RequestBody RegisterRequest request) {
