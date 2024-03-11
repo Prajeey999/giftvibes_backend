@@ -16,6 +16,10 @@ public class ProductService {
         return productsRepository.findAll();
     }
 
+    public Products findByName(String name){
+        return productsRepository.findAll().stream().filter(products -> products.getProdName().equals(name)).findFirst().orElseThrow();
+    }
+
     public Products save(Products products) {
         return productsRepository.save(products);
     }

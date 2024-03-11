@@ -1,4 +1,6 @@
 package com.giftvibes.prajeetkumar.Models;
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -48,6 +50,13 @@ public class User implements UserDetails {
         return role.getAuthorities();
     }
 
+    @ManyToMany
+    @JoinTable(
+            name = "user_cart",
+            joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "prod_id")
+    )
+    private List<Products> cartItems = new ArrayList<>();
     @Override
     public String getUsername() {
         return email;
