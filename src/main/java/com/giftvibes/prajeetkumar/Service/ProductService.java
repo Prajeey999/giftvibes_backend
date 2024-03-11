@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -14,6 +15,10 @@ public class ProductService {
 
     public List<Products> getProducts(){
         return productsRepository.findAll();
+    }
+
+    public List<Products> findByCategory(String category){
+        return productsRepository.findAll().stream().filter(products -> products.getCategory().equals(category)).collect(Collectors.toList());
     }
 
     public Products findByName(String name){
@@ -27,4 +32,5 @@ public class ProductService {
     public void deleteById(String id) {
         productsRepository.deleteById(id);
     }
+
 }
